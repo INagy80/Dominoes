@@ -1,0 +1,41 @@
+#version: '3.8'
+services:
+#  backend:
+#    build: ./backend
+#    ports:
+#      - "8080:8080"
+#    depends_on:
+#      - postgres
+#    environment:
+#      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/Dominesdb
+#      SPRING_DATASOURCE_USERNAME: Dominoes
+#      SPRING_DATASOURCE_PASSWORD: Dominoespass6174
+
+#  frontend:
+#    build: ./frontend
+#    ports:
+#      - "3000:3000"
+
+
+
+  db:
+    container_name: postgres
+    image: postgres
+    environment:
+      POSTGRES_USER: Dominoes
+      POSTGRES_PASSWORD: Dominoespass6174
+      PGDATA: /data/postgres
+    volumes:
+      - db:/data/postgres
+    ports:
+      - "5332:5432"
+    networks:
+      - db
+    restart: unless-stopped
+
+networks:
+    db:
+      driver: bridge
+
+volumes:
+    db:
