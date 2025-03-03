@@ -1,4 +1,4 @@
 package com.Dominoes.contraller;
 
-public class userContraller {
+public class userController {
 }
