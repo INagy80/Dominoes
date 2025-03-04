@@ -1,4 +1,4 @@
-package com.Dominoes.contraller;
+package com.Dominoes.controller;
 
 public class profileController {
 }

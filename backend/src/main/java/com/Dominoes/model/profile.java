@@ -1,5 +1,4 @@
-package com.Dominoes.module;
-import java.util.ArrayList;
+package com.Dominoes.model;
 import java.util.List;
 
 
@@ -9,14 +8,14 @@ public class profile {
     private int gamesPlayed;
     private int gamesWon;
     private int ranking;
-    private List<User> users;
+
 
     // Constructor
-    public profile(int gamesPlayed, int gamesWon, int ranking, List<User> users) {
+    public profile(int gamesPlayed, int gamesWon, int ranking) {
         this.gamesPlayed = gamesPlayed;
         this.gamesWon = gamesWon;
         this.ranking = ranking;
-        this.users = users;
+
     }
 
     // Getters and Setters
@@ -44,13 +43,7 @@ public class profile {
         this.ranking = ranking;
     }
 
-    public List<User> getUsers() {
-        return users;
-    }
 
-    public void setUsers(List<User> users) {
-        this.users = users;
-    }
 }
 
 

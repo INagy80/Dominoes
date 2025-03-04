@@ -1,14 +1,21 @@
 package com.Dominoes.services;
-import com.Dominoes.module.user;
+import com.Dominoes.DAO.IuserJPA;
+import com.Dominoes.DAO.userDAO;
+import com.Dominoes.model.user;
+import org.springframework.stereotype.Service;
 
-
+@Service
 public class userService {
 
-    public user user;
+    // Objekt erstellt
+    private final userDAO userDAO;
 
-    public userService(user user){
-        this.user = user;
+    //Konstruktor
+    public userService(userDAO userDAO) {
+        this.userDAO = userDAO;
     }
-
+    public user getUserById(Integer id){
+        return userDAO.getUserById(id).orElse(null);
+    }
 
 }

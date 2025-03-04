@@ -1,16 +1,27 @@
-package com.Dominoes.module;
+package com.Dominoes.model;
 
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class user {
 
+
+
     // Add some parameters
-    private String id;
+    @Id
+    private Integer id;
     private String userName;
     private String email;
     private String passwordHash;
     private boolean isGuest;
 
     // Constructor
-    public user(String id, String userName, String email, String passwordHash, boolean isGuest) {
+    public user() {
+    }
+
+    public user(Integer id, String userName, String email, String passwordHash, boolean isGuest) {
         this.id = id;
         this.userName = userName;
         this.email = email;
@@ -18,21 +29,14 @@ public class user {
         this.isGuest = isGuest;
     }
 
-    // Method to generate a random UUID for a given parameter ID
-    public UUID generateRandomUUIDForID(String id) {
-        // Generate a random UUID (v4) for each ID
-        return UUID.randomUUID();
-    }
+
 
     // Getters and Setters
 
-    public String getId() {
-        return id;
-    }
 
-    public void setId(String id) {
-        this.id = id;
-    }
+    public Integer getId() {return id;}
+
+    public void setId(Integer id) {this.id = id;}
 
     public String getUserName() {
         return userName;
