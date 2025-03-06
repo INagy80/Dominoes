@@ -75,7 +75,7 @@ public class    profile {
         this.id = id;
     }
 
-    public Long getId() {
+    public Long getId() { // should be added in profile so user and profile can be connected by the id as primarykey between them
         return id;
     }
 }
