@@ -1,5 +1,7 @@
 package com.Dominoes.service;
 
+import com.Dominoes.DAO.IdominoTileDAO;
+import com.Dominoes.DAO.dominoTileDAO;
 import com.Dominoes.model.dominoTile;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -7,16 +9,23 @@ import java.util.List;
 
 public class dominoTileService {
 
-    private JpaRepository<dominoTile, Integer> dominoTileJpaRepository;
+    private dominoTileDAO Ddao;
 
-    public dominoTile findById(int idT) {
-        return dominoTileJpaRepository.findById(idT).get();
+    public dominoTileService(dominoTileDAO Ddao) {
+        this.Ddao = Ddao;
     }
-    public List<dominoTile> findAll() {
-        return dominoTileJpaRepository.findAll();
+
+
+
+    public void saveTile(dominoTile dominoTile) {
+        Ddao.saveTile(dominoTile);
     }
-    public dominoTile save(dominoTile dominoTile) {
-        return dominoTileJpaRepository.save(dominoTile);
+
+    public List<dominoTile> findAllTiles() {
+        return Ddao.findAllTiles();
     }
+
+
+
 
 }

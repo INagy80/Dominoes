@@ -10,11 +10,15 @@ public class dominoTile {
     private int sideA;
     private int sideB;
 
+    private boolean placed;
+
     public dominoTile() {}
 
     public dominoTile(int sideA, int sideB) {
         this.sideA = sideA;
         this.sideB = sideB;
+        this.placed =false;
+        
 
     }
     public int getId() {
