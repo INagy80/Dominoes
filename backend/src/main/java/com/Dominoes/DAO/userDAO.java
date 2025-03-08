@@ -1,9 +1,9 @@
 package com.Dominoes.DAO;
 
-import com.Dominoes.model.user;
-import jakarta.persistence.Entity;
+import com.Dominoes.model.mUser;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -15,16 +15,35 @@ public class userDAO implements IuserDAO {
     //Konstruktor
     public userDAO(IuserJPA userJPA) {
         this.userJPA = userJPA;
+
+    }
+
+
+    @Override
+    public List<mUser> getAllUsers() {
+        return userJPA.findAll();
     }
 
     @Override
-    public Optional<user> getUserById(Integer id) {
+    public Optional<mUser> getUserById(Integer id) {
         return userJPA.findById(id);
     }
 
     @Override
-    public Optional<user> getallusers() {
-        return getallusers();
-    }
-}
+    public void insertUser(mUser user) {
+        userJPA.save(user);
 
+    }
+
+    @Override
+    public boolean existsUserByEmail(String email) {
+        return userJPA.existsByEmail(email);
+    }
+
+    @Override
+    public boolean existsUserByUsername(String username) {
+        return userJPA.existsByUsername(username);
+    }
+
+
+}
