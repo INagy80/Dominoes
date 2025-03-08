@@ -1,7 +1,11 @@
 package com.Dominoes.services;
 
 import com.Dominoes.DAO.profileDAO;
+import com.Dominoes.exception.userNotFoundException;
 import com.Dominoes.model.profile;
+
+import java.util.List;
+import java.util.Optional;
 
 public class profileService {
 
@@ -12,7 +16,14 @@ public class profileService {
         this.profileDAO = profileDAO;
     }
 
+    public List<profile> getAllProfiles() {
+        return profileDAO.getAllProfiles();
+    }
+
+
     public profile getProfileById(Integer id) {
-        return profileDAO.getProfileById(id).orElse(null);
-    };
+        return profileDAO.getProfileById(id).orElseThrow(
+                () -> new userNotFoundException("this profile does not exist")
+        );
+    }
 }
