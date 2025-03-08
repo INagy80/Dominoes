@@ -18,10 +18,10 @@ public class userHistoryController {
     }
 
     //geting userHistory by Id
-    @GetMapping("v1/users/{profileID}/userHistory/")
-    public userHistory getProfileByID(
-            @PathVariable("profileId") Integer profileId) {
+    @GetMapping("v1/users/{profileID}/userHistory")
+    public userHistory getUserHistoryByID(
+            @PathVariable("profileID") Integer userHistoryId) {
 
-        return historyService.findById(profileId);
+        return historyService.findById(userHistoryId);
     }
 }
