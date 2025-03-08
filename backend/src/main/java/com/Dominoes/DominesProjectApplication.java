@@ -26,8 +26,7 @@ public class DominesProjectApplication {
 	}
 
 	@Bean
-	CommandLineRunner runner(IuserJPA IuserJPA, IuserHistoryJPA IuserHistoryJPA, IgameJPA IgameJPA,
-							 IplayerJPA IplayeJPA, ItilePoolJPA ItilePoolJPA,ItileJPA ItileJPA) {
+	CommandLineRunner runner(IuserJPA IuserJPA, IuserHistoryJPA IuserHistoryJPA, IgameJPA IgameJPA){
 
 		return args -> {
 
