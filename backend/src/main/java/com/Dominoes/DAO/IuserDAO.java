@@ -1,11 +1,19 @@
 package com.Dominoes.DAO;
-
-import com.Dominoes.model.user;
-
+import java.util.List;
 import java.util.Optional;
 
-// zwei methoden wurde aufgerufen
+import com.Dominoes.model.mUser;
+import org.springframework.stereotype.Repository;
+
+
+// aufrufbar methoden
+@Repository
 public interface IuserDAO {
-    Optional<user> getUserById(Integer id);
-    Optional<user> getallusers();
+    List<mUser> getAllUsers();
+    Optional<mUser> getUserById(Integer id);
+    void insertUser(mUser user);
+    boolean existsUserByEmail(String email);
+    boolean existsUserByUsername(String username);
+
+
 }
