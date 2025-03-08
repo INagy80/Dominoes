@@ -1,11 +1,12 @@
 package com.Dominoes.DAO;
 
-import com.Dominoes.model.user;
+import com.Dominoes.model.mUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.Optional;
+public interface IuserJPA extends JpaRepository<mUser, Integer> {
 
-// Interface IuserJPA wurde mit database verkoppelt
-public interface IuserJPA extends JpaRepository<user, Integer> {
+
+    boolean existsByUsername(String username);
+    boolean existsByEmail(String email);
 
 }
