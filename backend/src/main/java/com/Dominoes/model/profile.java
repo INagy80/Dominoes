@@ -1,50 +1,136 @@
 package com.Dominoes.model;
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+
+import jakarta.persistence.*;
 
 import java.util.List;
+import java.util.Objects;
+
+
+
+import com.Dominoes.model.*;
+
 
 @Entity
-public class    profile {
+public class profile {
 
-    //add some parameters
-    private int gamesPlayed;
-    private int gamesWon;
-    private int ranking;
-    private String Avatar;
-    private List<user> friend; // This Variable is not working @OneToMany should be added
+    //attribute
+
     @Id
-    private Long id;
+    @SequenceGenerator(
+            name = "profile_id_sequence",
+            sequenceName = "profile_id_sequence"
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "profile_id_sequence"
+
+    )
+    private Integer id;
 
 
-    // Constructor
-    public profile() { } // non-Para Konstruktor
+    private String avatar;
 
-    public profile(int gamesPlayed, int gamesWon, int ranking, String avatar, List<user> friend, Long id) {
-        this.gamesPlayed = gamesPlayed;
-        this.gamesWon = gamesWon;
-        this.ranking = ranking;
-        Avatar = avatar;
-        this.friend = friend;
+    private int ranking ;
+
+
+    // we could add these later on :
+
+    //private List<mUser> friends;
+
+    //private List<user> followers;
+
+    //private List<user> following;
+
+
+
+    private int followersCount;
+
+    private int followingsCount;
+
+    private int inGameCurrencies;
+
+    @OneToOne
+    private userHistory history;
+
+    private boolean isGuest;
+
+    private boolean isAdmin;
+
+    private String role;
+
+    //empty constructor are important for JPA
+
+    public profile() {
+
+    }
+
+    // constructor
+
+    public profile(String avatar, userHistory history, boolean isAdmin, String role) {
+
+        this.avatar = avatar;
+        this.ranking = 0;
+        this.followersCount = 0;
+        this.followingsCount = 0;
+        this.inGameCurrencies = 1000;
+        this.history = history;
+        this.isGuest = false;
+        this.isAdmin = isAdmin;
+        this.role = role;
+    }
+
+
+    // setters and getters
+
+    public userHistory getHistory() {
+        return history;
+    }
+
+
+    public void setHistory(userHistory history) {
+        this.history = history;
+    }
+    //getters and setters
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public int getGamesPlayed() {
-        return gamesPlayed;
+    public boolean isGuest() {
+        return isGuest;
     }
 
-    public void setGamesPlayed(int gamesPlayed) {
-        this.gamesPlayed = gamesPlayed;
+    public void setGuest(boolean guest) {
+        isGuest = guest;
     }
 
-    public int getGamesWon() {
-        return gamesWon;
+    public boolean isAdmin() {
+        return isAdmin;
     }
 
-    public void setGamesWon(int gamesWon) {
-        this.gamesWon = gamesWon;
+    public void setAdmin(boolean admin) {
+        isAdmin = admin;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 
     public int getRanking() {
@@ -55,27 +141,52 @@ public class    profile {
         this.ranking = ranking;
     }
 
-    public String getAvatar() {
-        return Avatar;
+
+    public int getFollowersCount() {
+        return followersCount;
     }
 
-    public void setAvatar(String avatar) {
-        Avatar = avatar;
+    public void setFollowersCount(int followersCount) {
+        this.followersCount = followersCount;
     }
 
-    public List<user> getFriend() {
-        return friend;
+    public int getFollowingsCount() {
+        return followingsCount;
     }
 
-    public void setFriend(List<user> friend) {
-        this.friend = friend;
+    public void setFollowingsCount(int followingsCount) {
+        this.followingsCount = followingsCount;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public int getInGameCurrencies() {
+        return inGameCurrencies;
     }
 
-    public Long getId() { // should be added in profile so user and profile can be connected by the id as primarykey between them
-        return id;
+    public void setInGameCurrencies(int inGameCurrencies) {
+        this.inGameCurrencies = inGameCurrencies;
+    }
+
+
+
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(avatar, ranking, followersCount, followingsCount, inGameCurrencies);
+    }
+
+    //toString
+
+    @Override
+    public String toString() {
+        return "profile{" +
+                "avatar='" + avatar + '\'' +
+                ", ranking=" + ranking +
+
+
+                ", followersCount=" + followersCount +
+                ", followingsCount=" + followingsCount +
+                ", inGameCurrencies=" + inGameCurrencies +
+
+                '}';
     }
 }
