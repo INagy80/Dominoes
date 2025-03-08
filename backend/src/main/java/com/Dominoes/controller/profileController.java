@@ -27,7 +27,7 @@ public class profileController {
     }
 
     //geting user by Id
-    @GetMapping("v1/profiles/{profileId}")
+    @GetMapping("v1/users/profiles/{profileId}")
     public profile  getProfileByID(
             @PathVariable("profileId") Integer profileId) {
 
