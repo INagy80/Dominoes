@@ -3,10 +3,11 @@ package com.Dominoes.services;
 import com.Dominoes.DAO.profileDAO;
 import com.Dominoes.exception.userNotFoundException;
 import com.Dominoes.model.profile;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
+@Service
 public class profileService {
 
     // Objekt erstellt

@@ -34,7 +34,7 @@ public class userController {
 
       return userService.getUser(userId);
     }
-
+    // create new user
     @PostMapping("v1/register")
     public void registerUser(@RequestBody mUser user) {
         userService.addUser(user);
