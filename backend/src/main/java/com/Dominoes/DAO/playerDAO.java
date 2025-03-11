@@ -9,15 +9,15 @@ import java.util.Optional;
 @Repository
 public class playerDAO implements IplayerDAO{
 
-    private IplayerJPA playerJPA;
+    private final IplayerJPA playerJPA;
 
     public playerDAO(IplayerJPA playerJPA) {
         this.playerJPA = playerJPA;
     }
 
     @Override
-    public Optional<player> findById(int idP) {
-        return playerJPA.findById(idP);
+    public Optional<player> findById(Integer id) {
+        return playerJPA.findById(id);
     }
 
     @Override
@@ -28,5 +28,10 @@ public class playerDAO implements IplayerDAO{
     @Override
     public List<player> findAllPlayers() {
         return playerJPA.findAll();
+    }
+
+    @Override
+    public boolean existsUserByUsername(String username) {
+        return playerJPA.existsByUsername(username);
     }
 }

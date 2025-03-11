@@ -1,34 +1,36 @@
 package com.Dominoes.controller;
 
 import com.Dominoes.model.player;
-import com.Dominoes.service.playerService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.Dominoes.services.playerService;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 public class playerController {
 
-    private playerService playerService;
+    private final playerService service;
 
-
-    public playerController(playerService playerService) {
-        this.playerService = playerService;
+    public playerController(playerService service) {
+        this.service = service;
     }
 
-
-    public void createPlayer(player player) {
-        playerService.createPlayer(player);
-    }
-    public player findPlayerById(int idP) {
-        return playerService.findById(idP);
-    }
-    @GetMapping("v1/Players")
-    public List<player> findAllPlayers() {
-        return playerService.findAllPlayers();
+    @GetMapping("v1/players")
+    public List<player> getplayers() {
+        return service.findAllPlayers();
     }
 
+    //geting player by Id
+    @GetMapping("v1/users/{playerId}")
+    public player getplayer(
+            @PathVariable("playerId") Integer playerId) {
+
+        return service.findById(playerId);
+    }
+
+    @PostMapping("v1/player/create")
+    public void registerUser(@RequestBody player player) {
+        service.createPlayer(player);
+    }
 
 }

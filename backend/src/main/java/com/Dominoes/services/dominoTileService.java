@@ -1,4 +1,4 @@
-package com.Dominoes.service;
+package com.Dominoes.services;
 
 import com.Dominoes.DAO.tileDAO;
 import com.Dominoes.model.tile;

@@ -7,8 +7,9 @@ import java.util.Optional;
 
 public interface IplayerDAO {
 
-    Optional<player> findById(int idP);
+    Optional<player> findById(Integer id);
     void createPlayer(player player);
     List<player> findAllPlayers();
+    boolean existsUserByUsername(String username);
 
 }

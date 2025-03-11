@@ -1,7 +1,7 @@
 package com.Dominoes.controller;
 
 import com.Dominoes.model.tile;
-import com.Dominoes.service.dominoTileService;
+import com.Dominoes.services.dominoTileService;
 
 import java.util.List;
 
