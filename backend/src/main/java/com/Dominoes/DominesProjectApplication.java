@@ -26,7 +26,7 @@ public class DominesProjectApplication {
 	}
 
 	@Bean
-	CommandLineRunner runner(IuserJPA IuserJPA, IuserHistoryJPA IuserHistoryJPA, IgameJPA IgameJPA){
+	CommandLineRunner runner(IuserJPA IuserJPA, IuserHistoryJPA IuserHistoryJPA, IgameJPA IgameJPA, ItilePoolJPA ItilePoolJPA,IdominoTileJPA ItileJPA){
 
 		return args -> {
 
@@ -64,13 +64,13 @@ public class DominesProjectApplication {
 			IuserJPA.saveAll(users);
 
 
-			/*tilePool tilePool = new tilePool();
+			tilePool tilePool = new tilePool();
 			ItileJPA.saveAll(tilePool.getTiles());
 			ItilePoolJPA.save(tilePool);
-			player Tarek = new player(1,game1,100,tilePool);
-			IplayeJPA.save(Tarek);
+			//player Tarek = new player(1,game1,100,tilePool);
+			//IplayeJPA.save(Tarek);
 
-			 */
+
 
 
 
