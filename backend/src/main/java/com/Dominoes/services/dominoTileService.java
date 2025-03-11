@@ -2,25 +2,27 @@ package com.Dominoes.services;
 
 import com.Dominoes.DAO.tileDAO;
 import com.Dominoes.model.tile;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class dominoTileService {
 
-    private tileDAO Ddao;
+    private final tileDAO dao;
 
     public dominoTileService(tileDAO Ddao) {
-        this.Ddao = Ddao;
+        this.dao = Ddao;
     }
 
 
 
     public void saveTile(tile tile) {
-        Ddao.saveTile(tile);
+        dao.saveTile(tile);
     }
 
     public List<tile> findAllTiles() {
-        return Ddao.findAllTiles();
+        return dao.findAllTiles();
     }
 
 
