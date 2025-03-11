@@ -47,7 +47,7 @@ public class tilePool {
     public tile drawDomino() {
         Random rand = new Random();
         if (canDraw()) {
-            return tiles.get(rand.nextInt(28));
+            return tiles.get(rand.nextInt(tiles.size()));
         } else {
             return null;
         }
