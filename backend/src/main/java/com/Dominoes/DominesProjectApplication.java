@@ -24,10 +24,10 @@ public class DominesProjectApplication {
 
 	CommandLineRunner Runner (IplayerJPA playerJPA) {
 		return args -> {
-			player Tarek = new player(1212,"Taroka",1200 );
-			player Chayma = new player(1234,"Chayma",1000 );
-			playerJPA.save(Tarek);
-			playerJPA.save(Chayma);
+//			player Tarek = new player(1212,"Taroka",1200 );
+//			player Chayma = new player(1234,"Chayma",1000 );
+//			playerJPA.save(Tarek);
+//			playerJPA.save(Chayma);
 		};
 	}
 
