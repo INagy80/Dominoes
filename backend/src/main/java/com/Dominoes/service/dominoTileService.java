@@ -1,27 +1,25 @@
 package com.Dominoes.service;
 
-import com.Dominoes.DAO.IdominoTileDAO;
-import com.Dominoes.DAO.dominoTileDAO;
-import com.Dominoes.model.dominoTile;
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.Dominoes.DAO.tileDAO;
+import com.Dominoes.model.tile;
 
 import java.util.List;
 
 public class dominoTileService {
 
-    private dominoTileDAO Ddao;
+    private tileDAO Ddao;
 
-    public dominoTileService(dominoTileDAO Ddao) {
+    public dominoTileService(tileDAO Ddao) {
         this.Ddao = Ddao;
     }
 
 
 
-    public void saveTile(dominoTile dominoTile) {
-        Ddao.saveTile(dominoTile);
+    public void saveTile(tile tile) {
+        Ddao.saveTile(tile);
     }
 
-    public List<dominoTile> findAllTiles() {
+    public List<tile> findAllTiles() {
         return Ddao.findAllTiles();
     }
 

@@ -1,6 +1,6 @@
 package com.Dominoes.model;
 
-import com.Dominoes.DAO.ItileJPA;
+
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -54,7 +54,9 @@ public class tilePool {
     }
 
     public List<tile> shuffleDominoes() {
-        List<tile> sTiles = Collections.shuffle(tiles);
+        List<tile> sTiles = new ArrayList<>();
+        sTiles.addAll(tiles);
+        Collections.shuffle(sTiles);
 
         return sTiles;
 

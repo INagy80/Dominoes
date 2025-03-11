@@ -1,8 +1,7 @@
 package com.Dominoes.controller;
 
-import com.Dominoes.model.dominoTile;
+import com.Dominoes.model.tile;
 import com.Dominoes.service.dominoTileService;
-import com.Dominoes.service.playerService;
 
 import java.util.List;
 
@@ -15,10 +14,10 @@ public class dominoTileController {
         this.Dservice = Dservice;
     }
 
-    public void saveTile(dominoTile dominoTile) {
-        Dservice.saveTile(dominoTile);
+    public void saveTile(tile tile) {
+        Dservice.saveTile(tile);
     }
-    public List<dominoTile> findAllTiles() {
+    public List<tile> findAllTiles() {
         return Dservice.findAllTiles();
     }
 

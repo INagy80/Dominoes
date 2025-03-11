@@ -1,6 +1,6 @@
 package com.Dominoes.DAO;
 
-import com.Dominoes.model.dominoTile;
+import com.Dominoes.model.tile;
 
 import java.util.List;
 
@@ -8,8 +8,8 @@ public interface IdominoTileDAO {
 
 
 
-    void saveTile(dominoTile dominoTile);
-    List<dominoTile> findAllTiles();
+    void saveTile(tile tile);
+    List<tile> findAllTiles();
 
 
 

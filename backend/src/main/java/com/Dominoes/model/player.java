@@ -4,7 +4,6 @@ import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
-import org.yaml.snakeyaml.DumperOptions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +14,7 @@ public class player {
     private String name;
     private int inGamePunkt;
     @OneToMany(cascade = CascadeType.DETACH)
-    private List<dominoTile> PlayerTiles;
+    private List<tile> PlayerTiles;
 
     public player() {}
 
@@ -25,7 +24,7 @@ public class player {
         this.inGamePunkt = inGamePunkt;
         PlayerTiles = new ArrayList<>();
         for(int i = 0; i < 7; i++) {
-            PlayerTiles.add(new dominoTile((int)Math.random(), (int)Math.random()));
+            PlayerTiles.add(new tile((int)Math.random(), (int)Math.random()));
         }
 
     }
@@ -47,7 +46,7 @@ public class player {
     public void setInGamePunkt(int inGamePunkt) {
         this.inGamePunkt = inGamePunkt;
     }
-    public List<dominoTile> getPlayerTiles() {
+    public List<tile> getPlayerTiles() {
         return PlayerTiles;
     }
 
