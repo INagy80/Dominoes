@@ -17,17 +17,13 @@ public class playerService {
     }
 
     public void createPlayer(player player) {
-        //check if username already exists
-        if (dao.existsUserByUsername(player.getName())) {
-            throw new duplicatResourceException("This username already exists");
 
-            //add
-        }else{
+
 
             dao.createPlayer(player);
 
 
-        }
+
 
     }
 

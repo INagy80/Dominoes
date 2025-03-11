@@ -30,8 +30,5 @@ public class playerDAO implements IplayerDAO{
         return playerJPA.findAll();
     }
 
-    @Override
-    public boolean existsUserByUsername(String username) {
-        return playerJPA.existsByUsername(username);
-    }
+
 }

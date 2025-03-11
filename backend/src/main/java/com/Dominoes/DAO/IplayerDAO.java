@@ -10,6 +10,6 @@ public interface IplayerDAO {
     Optional<player> findById(Integer id);
     void createPlayer(player player);
     List<player> findAllPlayers();
-    boolean existsUserByUsername(String username);
+
 
 }
