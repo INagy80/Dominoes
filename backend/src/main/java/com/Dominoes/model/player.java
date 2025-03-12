@@ -59,6 +59,15 @@ public class player {
 
     }
 
+    public void dealDominoFromPool(tilePool pool){
+        if(pool.drawDomino() != null){
+            PlayerTiles.add(pool.drawDomino());
+        }
+
+    }
+
+
+
     public tile removeDominofromHand(int index){
         if(index >= 0 && index < PlayerTiles.size()){
             tile temp = getDominoFromHand(index);
